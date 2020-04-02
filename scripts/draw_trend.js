@@ -8,7 +8,7 @@ var test;
 d3.csv(timeline_url, function(data)   
 {
   // daily_values = [];
-  names = ['us', 'es', 'it', 'de', 'cn', 'fr', 'ir', 'uk', 'ch', 'tr', 'be', 'nl', 'ca', 'kr', 'au', 'jp', 'hk', 'nz', 'tw', 'mo'];
+  names = ['us', 'es', 'it', 'de', 'cn', 'fr', 'ir', 'uk', 'ch', 'tr', 'be', 'nl', 'ca', 'at', 'kr', 'pt', 'br', 'il', 'au', 'jp', 'hk', 'nz', 'tw', 'mo'];
   // names = ['nz','de'];
   for (var index = names.length - 1; index >= 0; index--) {
 
