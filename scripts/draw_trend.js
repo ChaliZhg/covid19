@@ -1,6 +1,6 @@
-confirmed_max =10000;
-recovered_max = 5000;
-death_max = 500;
+confirmed_max =8000;
+recovered_max = 2000;
+death_max = 300;
 
 timeline_url = "https://d3sid3u2apar25.cloudfront.net/history.v3.csv";
 
@@ -8,7 +8,7 @@ var test;
 d3.csv(timeline_url, function(data)   
 {
   // daily_values = [];
-  names = ['us', 'es', 'it', 'de', 'cn', 'fr', 'uk','au', 'nz'];
+  names = ['us', 'es', 'it', 'de', 'cn', 'fr', 'ir', 'uk', 'ch', 'tr', 'be', 'nl', 'ca', 'kr', 'au', 'jp', 'hk', 'nz', 'tw', 'mo'];
   // names = ['nz','de'];
   for (var index = names.length - 1; index >= 0; index--) {
 
@@ -28,7 +28,6 @@ d3.csv(timeline_url, function(data)
   //   }
   // }
 
-  console.log(data[0].date);
 
   for (var i = data.length - 1; i >= 0; i--) {
     if (data[i].id == names[index])
@@ -278,10 +277,15 @@ var parseDate  = d3.time.format('%Y%m%d').parse;
     };}
   });
 
+  current_date = parseInt(tempData[0]["date"]).toString();
+  document.getElementById('update_date').innerHTML = 
+    current_date.substring(0,4)+"年"+
+    current_date.substring(4,6)+"月"+
+    current_date.substring(6,8)+"日";
   current_confirmed = tempData[0]["confirmed"];
   current_recovered = tempData[0]["recovered"];
   current_death = tempData[0]["deaths"];
-  console.log(names[index], tempData[tempData.length-1]['date'], tempData[tempData.length-1]['confirmed']);
+  // console.log(names[index], tempData[tempData.length-1]['date'], tempData[tempData.length-1]['confirmed']);
 
   for (var ref_date = tempData[tempData.length-1]['date']; i >20200122; ref_date--)
   {
@@ -327,9 +331,14 @@ var parseDate  = d3.time.format('%Y%m%d').parse;
 };
 
 
-  }
+  };
 
-
+      var x = document.getElementsByClassName("country_info");
+      for (var i = 0; i < x.length; i++) {
+        x[i].style.display = "block";
+      }
+      x = document.getElementById("loading_animation");
+      x.style.display="none";
 });
 
 
