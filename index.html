@@ -22,7 +22,7 @@
       <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script> -->
       <!-- <script src="scripts/datamaps.deu.js"></script> -->
       <!-- <script src="scripts/p5.min.js"></script> -->
-
+<!-- 
 <table style="text-align:center;">
   <tr>
     <th><span style="color: #d14f69;">确诊</span></th>
@@ -42,7 +42,7 @@ border-style: solid; border-color: #4D4D4D;">load</span></td>
     <td><span id='recovery_increase' style="font-size: 50%;background: #70c66b; color: white;">新增0</span></td>
     <td><span id='death_increase' style="font-size: 50%; background: #4D4D4D; color: white;">新增0</span></td>
   </tr>
-</table>
+</table> -->
 <!--       <label class="switch-light switch-candy" onclick="">
         <input type="checkbox" checked id="toogle2" checked="=">
         <span>
@@ -58,16 +58,33 @@ border-style: solid; border-color: #4D4D4D;">load</span></td>
     <div>
       <div style="width: 15%; float: left; ">US</div>
       <div style="width: 85%; float: left;">
-        <div id="daily_confirmed_trend_us" style="width: 90%; float: left;"></div>
+        <div id="daily_confirmed_trend_us""></div>
         <div id="daily_recovered_trend_us"></div>
         <div id="daily_death_trend_us"></div>
       </div>
     </div>
 
     <div>
+      <div style="width: 15%; float: left; ">IT</div>
+      <div style="width: 85%; float: left;">
+        <div id="daily_confirmed_trend_it""></div>
+        <div id="daily_recovered_trend_it"></div>
+        <div id="daily_death_trend_it"></div>
+      </div>
+    </div>
+
+    <div>
+      <div style="width: 15%; float: left; ">ES</div>
+      <div style="width: 85%; float: left;">
+        <div id="daily_confirmed_trend_es""></div>
+        <div id="daily_recovered_trend_es"></div>
+        <div id="daily_death_trend_es"></div>
+      </div>
+    </div>
+    <div>
       <div style="width: 15%; float: left; ">CN</div>
       <div style="width: 85%; float: left;">
-        <div id="daily_confirmed_trend_cn" style="width: 90%; float: left;"></div>
+        <div id="daily_confirmed_trend_cn""></div>
         <div id="daily_recovered_trend_cn"></div>
         <div id="daily_death_trend_cn"></div>
       </div>
@@ -75,46 +92,38 @@ border-style: solid; border-color: #4D4D4D;">load</span></td>
     <div>
       <div style="width: 15%; float: left; ">DE</div>
       <div style="width: 85%; float: left;">
-        <div id="daily_confirmed_trend_de" style="width: 90%; float: left;"></div>
+        <div id="daily_confirmed_trend_de""></div>
         <div id="daily_recovered_trend_de"></div>
         <div id="daily_death_trend_de"></div>
       </div>
     </div>
 
     <div>
-      <div style="width: 15%; float: left; ">NZ</div>
-      <div style="width: 85%; float: left;">
-        <div id="daily_confirmed_trend_nz" style="width: 90%; float: left;"></div>
-        <div id="daily_recovered_trend_nz"></div>
-        <div id="daily_death_trend_nz"></div>
-      </div>
-    </div>
-    <div>
       <div style="width: 15%; float: left; ">FR</div>
       <div style="width: 85%; float: left;">
-        <div id="daily_confirmed_trend_fr" style="width: 90%; float: left;"></div>
+        <div id="daily_confirmed_trend_fr""></div>
         <div id="daily_recovered_trend_fr"></div>
         <div id="daily_death_trend_fr"></div>
       </div>
     </div>
 
     <div>
-      <div style="width: 15%; float: left; ">ES</div>
-      <div style="width: 85%; float: left;">
-        <div id="daily_confirmed_trend_es" style="width: 90%; float: left;"></div>
-        <div id="daily_recovered_trend_es"></div>
-        <div id="daily_death_trend_es"></div>
-      </div>
-    </div>
-    <div>
       <div style="width: 15%; float: left; ">UK</div>
       <div style="width: 85%; float: left;">
-        <div id="daily_confirmed_trend_uk" style="width: 90%; float: left;"></div>
+        <div id="daily_confirmed_trend_uk""></div>
         <div id="daily_recovered_trend_uk"></div>
         <div id="daily_death_trend_uk"></div>
       </div>
     </div>
 
+    <div>
+      <div style="width: 15%; float: left; ">NZ</div>
+      <div style="width: 85%; float: left;">
+        <div id="daily_confirmed_trend_nz""></div>
+        <div id="daily_recovered_trend_nz"></div>
+        <div id="daily_death_trend_nz"></div>
+      </div>
+    </div>
     <script src="scripts/draw_trend.js"></script>
   <div class="column js-content">
 

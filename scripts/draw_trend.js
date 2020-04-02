@@ -6,7 +6,7 @@ timeline_url = "https://d3sid3u2apar25.cloudfront.net/history.v3.csv";
 d3.csv(timeline_url, function(data)   
 {
   // daily_values = [];
-  names = ['us', 'nz', 'cn', 'de', 'fr', 'uk', 'es'];
+  names = ['us', 'nz', 'cn', 'de', 'fr', 'uk', 'es', 'it'];
   // names = ['nz','de'];
   for (var index = names.length - 1; index >= 0; index--) {
 
@@ -148,7 +148,7 @@ function startTransitions (svg, chartWidth, chartHeight, rectClip, markers, x) {
 
 function makeChart (config, data, markers) {
   var svgWidth  = 450,
-      svgHeight = 20,
+      svgHeight = 30,
       margin = { top: 2, right: 2, bottom: 4, left: 6 },
       chartWidth  = svgWidth  - margin.left - margin.right,
       chartHeight = svgHeight - margin.top  - margin.bottom;
