@@ -1,3 +1,6 @@
+confirmed_max =10000;
+recovered_max = 5000;
+death_max = 500;
 
 timeline_url = "https://d3sid3u2apar25.cloudfront.net/history.v3.csv";
 d3.csv(timeline_url, function(data)   
@@ -67,13 +70,13 @@ function addAxesAndLegend (svg, xAxis, yAxis, margin, chartWidth, chartHeight, c
 
 function drawPaths (svg, data, x, y, config) {
   var sumArea16 = d3.svg.area()
-    .interpolate('step-after')
+    .interpolate('linear')
     .x (function (d) { return x(d.date) || 1; })
     .y0(function (d) { return y(d.value); })
     .y1(function (d) { return y(0); });
 
   var medianLine = d3.svg.line()
-    .interpolate('step-after')
+    .interpolate('linear')
     .x(function (d) { return x(d.date); })
     .y(function (d) { return y(d.value); });
 
@@ -153,7 +156,9 @@ function makeChart (config, data, markers) {
   var x = d3.time.scale().range([0, chartWidth])
             .domain(d3.extent(data, function (d) { return d.date; })),
       y = d3.scale.linear().range([chartHeight, 0])
-            .domain([0, d3.max(data, function (d) { return d.value; })]);
+            .domain([0, d3.max(data, function (d) { if(config.name=="confirmed") {return confirmed_max;}
+                                                    if(config.name=="recovered") {return recovered_max;} 
+                                                    if(config.name=="death") {return death_max;} })]);
 
   var xAxis = d3.svg.axis().scale(x).orient('bottom').ticks(5).tickFormat(d3.time.format("%d"))
                 .innerTickSize(-chartHeight).outerTickSize(0).tickPadding(10),
@@ -215,31 +220,44 @@ var parseDate  = d3.time.format('%Y%m%d').parse;
 
   var data_confirmed = tempData.map(function (d) {
     // console.log([d.date, d["recovered-inc"]]);
-    return {
+    if (d["confirmed-inc"]<confirmed_max) {    return {
       date:  parseDate(d.date),
       value:d["confirmed-inc"],
-    };
+    };}
+    if (d["confirmed-inc"]>=confirmed_max) {    return {
+      date:  parseDate(d.date),
+      value:confirmed_max,
+    };}
   });
 
   var data_recovered = tempData.map(function (d) {
     // console.log([d.date, d["recovered-inc"]]);
-    return {
+    if (d["recovered-inc"]<recovered_max) {    return {
       date:  parseDate(d.date),
       value:d["recovered-inc"],
-    };
+    };}
+    if (d["recovered-inc"]>=recovered_max) {    return {
+      date:  parseDate(d.date),
+      value:recovered_max,
+    };}
   });
 
   var data_death = tempData.map(function (d) {
     // console.log([d.date, d["recovered-inc"]]);
-    return {
+    if (d["death-inc"]<death_max) {    return {
       date:  parseDate(d.date),
       value:d["death-inc"],
-    };
+    };}
+    if (d["death-inc"]>=death_max) {    return {
+      date:  parseDate(d.date),
+      value:death_max,
+    };}
   });
 
   configs = {"confirmed":{"div":"#daily_confirmed_trend", name:"confirmed", "text":"确诊", },
              "recovered":{"div":"#daily_recovered_trend", name:"recovered", "text":"治愈", },
-             "death"    :{"div":"#daily_death_trend", name:"death",         "text":"死亡", }};
+             "death"    :{"div":"#daily_death_trend", name:"death",         "text":"死亡", }
+           };
 
   makeChart(configs["confirmed"], data_confirmed, []);
   makeChart(configs["recovered"], data_recovered, []);

@@ -140,7 +140,7 @@ svg {
 .legend .confirmed-line {
   fill: none;
   stroke: #d14f69;
-  stroke-width: 2;
+  stroke-width: 1;
 }
 
 .area.recovered,
@@ -154,7 +154,7 @@ svg {
 .legend .recovered-line {
   fill: none;
   stroke: #70c66b;
-  stroke-width: 2;
+  stroke-width: 1;
 }
 
 .area.death,
@@ -168,7 +168,7 @@ svg {
 .legend .death-line {
   fill: none;
   stroke: #4D4D4D;
-  stroke-width: 2;
+  stroke-width: 1;
 }
 
 .legend .legend-bg {
