@@ -1,1 +1,1 @@
-# Realtime reported COVID-19 infections in New Zealand
+# 新冠肺炎COVID-19疫情发展趋势
