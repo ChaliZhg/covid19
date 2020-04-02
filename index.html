@@ -55,76 +55,140 @@ border-style: solid; border-color: #4D4D4D;">load</span></td>
         <div id="canvas" style="height: 600px; width: 450px; text-align: left;"></div>
       </div>
       <script type="text/javascript" src="scripts/parseData.js"></script> -->
+<!-- <button onclick="toggle_confirmed_bar()">确诊</button>
+<button onclick="toggle_recovered_bar()">治愈</button>
+<button onclick="toggle_death_bar()">死亡</button> -->
+
+<h2>新冠肺炎COVID-19疫情发展趋势</h2>
+
+<label class="container">确诊
+  <input type="checkbox" checked="checked" onclick="toggle_confirmed_bar()">
+  <span class="checkmark"></span>
+</label>
+
+<label class="container">治愈
+  <input type="checkbox" checked="checked" onclick="toggle_recovered_bar()">
+  <span class="checkmark"></span>
+</label>
+
+<label class="container">死亡
+  <input type="checkbox" checked="checked" onclick="toggle_death_bar()">
+  <span class="checkmark"></span>
+</label>
+
     <div>
-      <div style="width: 15%; float: left; ">US</div>
-      <div style="width: 85%; float: left;">
-        <div id="daily_confirmed_trend_us""></div>
-        <div id="daily_recovered_trend_us"></div>
-        <div id="daily_death_trend_us"></div>
+      <div style="width: 70px; float: left; "> <a href="us/index.html">美国</a> </div>
+      <div style="width: 380px; float: left;">
+        <div class="confirmed_bar" id="daily_confirmed_trend_us""></div>
+        <div class="recovered_bar" id="daily_recovered_trend_us"></div>
+        <div class = "death_bar" id="daily_death_trend_us"></div>
       </div>
     </div>
 
     <div>
-      <div style="width: 15%; float: left; ">IT</div>
-      <div style="width: 85%; float: left;">
-        <div id="daily_confirmed_trend_it""></div>
-        <div id="daily_recovered_trend_it"></div>
-        <div id="daily_death_trend_it"></div>
+      <div style="width: 70px; float: left; "> <a href="it/index.html">意大利</a> </div>
+      <div style="width: 380px; float: left;">
+        <div class="confirmed_bar" id="daily_confirmed_trend_it""></div>
+        <div class="recovered_bar" id="daily_recovered_trend_it"></div>
+        <div class = "death_bar" id="daily_death_trend_it"></div>
       </div>
     </div>
 
     <div>
-      <div style="width: 15%; float: left; ">ES</div>
-      <div style="width: 85%; float: left;">
-        <div id="daily_confirmed_trend_es""></div>
-        <div id="daily_recovered_trend_es"></div>
-        <div id="daily_death_trend_es"></div>
+      <div style="width: 70px; float: left; "> <a href="es/index.html">西班牙</a> </div>
+      <div style="width: 380px; float: left;">
+        <div class="confirmed_bar" id="daily_confirmed_trend_es""></div>
+        <div class="recovered_bar" id="daily_recovered_trend_es"></div>
+        <div class = "death_bar" id="daily_death_trend_es"></div>
       </div>
     </div>
     <div>
-      <div style="width: 15%; float: left; ">CN</div>
-      <div style="width: 85%; float: left;">
-        <div id="daily_confirmed_trend_cn""></div>
-        <div id="daily_recovered_trend_cn"></div>
-        <div id="daily_death_trend_cn"></div>
+      <div style="width: 70px; float: left; "> <a href="de/index.html">德国</a> </div>
+      <div style="width: 380px; float: left;">
+        <div class="confirmed_bar" id="daily_confirmed_trend_de""></div>
+        <div class="recovered_bar" id="daily_recovered_trend_de"></div>
+        <div class = "death_bar" id="daily_death_trend_de"></div>
       </div>
     </div>
     <div>
-      <div style="width: 15%; float: left; ">DE</div>
-      <div style="width: 85%; float: left;">
-        <div id="daily_confirmed_trend_de""></div>
-        <div id="daily_recovered_trend_de"></div>
-        <div id="daily_death_trend_de"></div>
-      </div>
-    </div>
-
-    <div>
-      <div style="width: 15%; float: left; ">FR</div>
-      <div style="width: 85%; float: left;">
-        <div id="daily_confirmed_trend_fr""></div>
-        <div id="daily_recovered_trend_fr"></div>
-        <div id="daily_death_trend_fr"></div>
+      <div style="width: 70px; float: left; "> <a href="cn/index.html">中国</a> </div>
+      <div style="width: 380px; float: left;">
+        <div class="confirmed_bar" id="daily_confirmed_trend_cn""></div>
+        <div class="recovered_bar" id="daily_recovered_trend_cn"></div>
+        <div class = "death_bar" id="daily_death_trend_cn"></div>
       </div>
     </div>
 
     <div>
-      <div style="width: 15%; float: left; ">UK</div>
-      <div style="width: 85%; float: left;">
-        <div id="daily_confirmed_trend_uk""></div>
-        <div id="daily_recovered_trend_uk"></div>
-        <div id="daily_death_trend_uk"></div>
+      <div style="width: 70px; float: left; "> <a href="fr/index.html">法国</a> </div>
+      <div style="width: 380px; float: left;">
+        <div class="confirmed_bar" id="daily_confirmed_trend_fr""></div>
+        <div class="recovered_bar" id="daily_recovered_trend_fr"></div>
+        <div class = "death_bar" id="daily_death_trend_fr"></div>
       </div>
     </div>
 
     <div>
-      <div style="width: 15%; float: left; ">NZ</div>
-      <div style="width: 85%; float: left;">
-        <div id="daily_confirmed_trend_nz""></div>
-        <div id="daily_recovered_trend_nz"></div>
-        <div id="daily_death_trend_nz"></div>
+      <div style="width: 70px; float: left; "> <a href="uk/index.html">英国</a> </div>
+      <div style="width: 380px; float: left;">
+        <div class="confirmed_bar" id="daily_confirmed_trend_uk""></div>
+        <div class="recovered_bar" id="daily_recovered_trend_uk"></div>
+        <div class = "death_bar" id="daily_death_trend_uk"></div>
+      </div>
+    </div>
+    <div>
+      <div style="width: 70px; float: left; "> <a href="au/index.html">澳大利亚</a> </div>
+      <div style="width: 380px; float: left;">
+        <div class="confirmed_bar" id="daily_confirmed_trend_au""></div>
+        <div class="recovered_bar" id="daily_recovered_trend_au"></div>
+        <div class = "death_bar" id="daily_death_trend_au"></div>
+      </div>
+    </div>
+    <div>
+      <div style="width: 70px; float: left; "> <a href="nz/index.html">新西兰</a> </div>
+      <div style="width: 380px; float: left;">
+        <div class="confirmed_bar" id="daily_confirmed_trend_nz""></div>
+        <div class="recovered_bar" id="daily_recovered_trend_nz"></div>
+        <div class = "death_bar" id="daily_death_trend_nz"></div>
       </div>
     </div>
     <script src="scripts/draw_trend.js"></script>
+
+
+    <script type="text/javascript">
+      function toggle_confirmed_bar() {
+        var x = document.getElementsByClassName("confirmed_bar");
+        for (var i = 0; i < x.length; i++) {
+          if (x[i].style.display === "none") {
+            x[i].style.display = "block";
+          } else {
+            x[i].style.display = "none";
+          }
+        }
+      }
+      function toggle_recovered_bar() {
+        var x = document.getElementsByClassName("recovered_bar");
+        for (var i = 0; i < x.length; i++) {
+          if (x[i].style.display === "none") {
+            x[i].style.display = "block";
+          } else {
+            x[i].style.display = "none";
+          }
+        }
+      }
+      function toggle_death_bar() {
+        var x = document.getElementsByClassName("death_bar");
+        for (var i = 0; i < x.length; i++) {
+          if (x[i].style.display === "none") {
+            x[i].style.display = "block";
+          } else {
+            x[i].style.display = "none";
+          }
+        }
+      }
+    </script>
+
+
   <div class="column js-content">
 
   </div>

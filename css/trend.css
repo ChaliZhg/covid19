@@ -212,3 +212,15 @@ svg {
 .marker text {
   text-anchor: middle;
 }
+
+.confirmed-label{
+  fill: #d14f69;
+}
+
+.recovered-label{
+  fill: #70c66b;
+}
+
+.death-label{
+  fill: #4D4D4D;
+}
