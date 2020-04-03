@@ -255,6 +255,8 @@ var parseDate  = d3.time.format('%Y%m%d').parse;
   // });
 };
 
+      var x = document.getElementById("loading_animation");
+      x.style.display="none";
 });
 
 

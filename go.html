@@ -1,18 +1,24 @@
 <!doctype>
 <html>
 <head>
-  <link href='../css/new.css' rel='stylesheet' type='text/css' />
-  <link rel="stylesheet" type="text/css" href="../css/toggle-switch.css"/>
-  <link rel="stylesheet" href="../css/trend.css"/>
-  <link href='../favicon.png' rel='icon'>
+  <link href='css/new.css' rel='stylesheet' type='text/css' />
+  <link rel="stylesheet" type="text/css" href="css/toggle-switch.css"/>
+  <link rel="stylesheet" href="css/trend.css"/>
+  <link href='favicon.png' rel='icon'>
   <meta content='width=device-width, initial-scale=1.0' name='viewport'>
   <meta content='text/html; charset=utf-8' http-equiv='content-type' />
 
-  <title>日本新冠肺炎COVID-19最新疫情</title>
-  <meta content='日本新冠肺炎COVID-19最新疫情' property='og:title' />
-  <meta content='https://teaof.life/corona' property='og:url' />
-  <meta content="Realtime reported Covid-19 infections in Italy, 日本新冠肺炎COVID-19最新疫情" property='og:description' />
+  <title>新冠肺炎COVID-19最新疫情</title>
+  <meta content='新冠肺炎COVID-19最新疫情' property='og:title' />
+  <meta content='https://teaof.life/covid19' property='og:url' />
+  <meta content="Realtime reported Covid-19 infections, 新冠肺炎COVID-19最新疫情" property='og:description' />
   <meta content="blog" property="og:type" />
+
+  <script type="text/javascript">
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var id = url.searchParams.get("id");
+  </script>
 </head>
 <body>
   <div class="wrapper">
@@ -20,8 +26,38 @@
       <script src="scripts/topojson.min.js"></script> -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
       <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script> -->
-      <!-- <script src="../scripts/datamaps.deu.js"></script> -->
-<h2>日本</h2>
+      <!-- <script src="scripts/datamaps.deu.js"></script> -->
+<p style="text-align: left;"><span><a href="index.html" style="text-align: left;">首页</a></span></p>
+<h2 id="country_name"></h2>
+<script type="text/javascript">
+  countries = {
+    at:"奥地利",
+    br:"巴西",
+    cn:"中国大陆",
+    es:"西班牙",
+    jp:"日本",
+    nl:"荷兰",
+    tw:"中国台湾",
+    au:"澳大利亚",
+    ca:"加拿大",
+    hk:"中国香港",
+    ir:"伊朗",
+    kr:"韩国",
+    nz:"新西兰",
+    uk:"英国",
+    be:"比利时",
+    ch:"瑞士",
+    de:"德国",
+    fr:"法国",
+    il:"以色列",
+    it:"意大利",
+    mo:"中国澳门",
+    pt:"葡萄牙",
+    tr:"土耳其",
+    us:"美国",
+  };
+  document.getElementById('country_name').innerHTML = countries[id];
+</script>
 <table style="text-align:center;">
   <tr>
     <th><span style="color: #d14f69;">确诊</span></th>
@@ -42,6 +78,10 @@ border-style: solid; border-color: #4D4D4D;">load</span></td>
     <td><span id='death_increase' style="font-size: 50%; background: #4D4D4D; color: white;">新增0</span></td>
   </tr>
 </table>
+
+<div style="display: flex;flex-direction: column;align-items: center;">
+  <div class="donut" id="loading_animation" ></div>
+</div>
 <!--       <label class="switch-light switch-candy" onclick="">
         <input type="checkbox" checked id="toogle2" checked="=">
         <span>
@@ -53,12 +93,12 @@ border-style: solid; border-color: #4D4D4D;">load</span></td>
 <!--       <div id="wrap-around" style="text-align: center;">
         <div id="canvas" style="height: 600px; width: 450px; text-align: left;"></div>
       </div>
-      <script type="text/javascript" src="../scripts/parseData.js"></script> -->
+      <script type="text/javascript" src="scripts/parseData.js"></script> -->
     <div id="daily_confirmed_trend"></div>
     <div id="daily_recovered_trend"></div>
     <div id="daily_death_trend"></div>
-    <script type="text/javascript">country_code="jp";</script>
-    <script src="../scripts/draw_pretty_trend.js"></script>
+    <script type="text/javascript">country_code=id;</script>
+    <script src="scripts/draw_pretty_trend.js"></script>
   <div class="column js-content">
 
   </div>
