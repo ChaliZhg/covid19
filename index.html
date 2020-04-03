@@ -61,6 +61,8 @@ border-style: solid; border-color: #4D4D4D;">load</span></td>
 
 <h2>新冠肺炎COVID-19疫情发展趋势</h2>
 
+<script src="scripts/country_names.js"></script>
+
 <label class="container">确诊
   <input type="checkbox" checked="checked" onclick="toggle_confirmed_bar()">
   <span class="checkmark"></span>
@@ -226,6 +228,14 @@ border-style: solid; border-color: #4D4D4D;">load</span></td>
         <div class="confirmed_bar" id="daily_confirmed_trend_il""></div>
         <div class="recovered_bar" id="daily_recovered_trend_il"></div>
         <div class = "death_bar" id="daily_death_trend_il"></div>
+      </div>
+    </div>
+    <div class="country_info" style="display: none">
+      <div style="width: 70px; float: left; "> <a href="go.html?id=se">瑞典</a> </div>
+      <div style="width: 380px; float: left;">
+        <div class="confirmed_bar" id="daily_confirmed_trend_se""></div>
+        <div class="recovered_bar" id="daily_recovered_trend_se"></div>
+        <div class = "death_bar" id="daily_death_trend_se"></div>
       </div>
     </div>
     <div class="country_info" style="display: none">
