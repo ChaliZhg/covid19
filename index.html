@@ -2,7 +2,7 @@
 <html>
 <head>
   <link href='css/new.css' rel='stylesheet' type='text/css' />
-  <!-- <link rel="stylesheet" type="text/css" href="css/toggle-switch.css"/> -->
+  <link rel="stylesheet" type="text/css" href="css/toggle-switch.css"/>
   <link rel="stylesheet" href="css/trend.css"/>
   <link href='favicon.png' rel='icon'>
   <meta content='width=device-width, initial-scale=1.0' name='viewport'>
@@ -61,6 +61,10 @@ border-style: solid; border-color: #4D4D4D;">load</span></td>
 
 <h2>新冠肺炎COVID-19疫情发展趋势</h2>
 
+<div>
+  <span>2020年01月22日 - </span><span id='update_date'>2020年0x月0x日</span>
+</div>
+
 <script src="scripts/country_names.js"></script>
 
 <label class="container">确诊
@@ -77,8 +81,6 @@ border-style: solid; border-color: #4D4D4D;">load</span></td>
   <input type="checkbox" checked="checked" onclick="toggle_death_bar()">
   <span class="checkmark"></span>
 </label>
-
-<span>2020年01月22日 - </span><span id='update_date'>2020年0x月0x日</span>
 
 <div style="display: flex;flex-direction: column;align-items: center;">
   <div class="donut" id="loading_animation" ></div>
