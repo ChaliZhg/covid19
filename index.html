@@ -66,7 +66,7 @@ border-style: solid; border-color: #4D4D4D;">load</span></td>
 </div>
 
 <script src="scripts/country_names.js"></script>
-
+<!-- 
 <label class="container">确诊
   <input type="checkbox" id="confirmed_button" checked="checked" onclick="toggle_confirmed_bar()">
   <span class="checkmark"></span>
@@ -80,19 +80,111 @@ border-style: solid; border-color: #4D4D4D;">load</span></td>
 <label class="container">死亡
   <input type="checkbox" id="death_button" checked="checked" onclick="toggle_death_bar()">
   <span class="checkmark"></span>
-</label>
+</label> -->
+
+<!-- <fieldset> -->
+  <!-- <legend>View</legend> -->
+  <div class="switch-toggle switch-material" id ="test">
+    <input id="confirmed_button_1" name="view" type="radio" checked>
+    <label for="confirmed_button_1" id="confirmed_button_label_1" onclick="selectOnlyThis(this.id)">确诊</label>
+
+    <input id="recovered_button_1" name="view" type="radio">
+    <label for="recovered_button_1" id="recovered_button_label_1" onclick="selectOnlyThis(this.id)">治愈</label>
+
+    <input id="death_button_1" name="view" type="radio">
+    <label for="death_button_1" id="death_button_label_1" onclick="selectOnlyThis(this.id)">死亡</label>
+
+    <input id="all_button_1" name="view" type="radio">
+    <label for="all_button_1" id="all_button_label_1" onclick="selectOnlyThis(this.id)">全部</label>
+    <a></a>
+  </div>
+<!-- </fieldset> -->
 
 <script type="text/javascript">
-  var checkboxes = document.getElementsByTagName('input');
+function selectOnlyThis(id) {
+    if (id=="confirmed_button_label_1")
+    {
+      var x = document.getElementsByClassName('confirmed_bar');
 
-  for (var i=0; i<checkboxes.length; i++)  {
-    if (checkboxes[i].type == 'checkbox')   {
-      if (checkboxes[i].id != 'confirmed_button')
-      {
-        checkboxes[i].checked = false;
+      for (var i = 0; i < x.length; i++) {
+          x[i].style.display = "block";
+      }
+      var x = document.getElementsByClassName('recovered_bar');
+
+      for (var i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+      }
+      x = document.getElementsByClassName('death_bar');
+
+      for (var i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
       }
     }
-  }
+    if (id=="recovered_button_label_1")
+    {
+      var x = document.getElementsByClassName('recovered_bar');
+
+      for (var i = 0; i < x.length; i++) {
+          x[i].style.display = "block";
+      }
+      var x = document.getElementsByClassName('confirmed_bar');
+
+      for (var i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+      }
+      x = document.getElementsByClassName('death_bar');
+
+      for (var i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+      }
+    }
+    if (id=="death_button_label_1")
+    {
+      var x = document.getElementsByClassName('death_bar');
+
+      for (var i = 0; i < x.length; i++) {
+          x[i].style.display = "block";
+      }
+      var x = document.getElementsByClassName('recovered_bar');
+
+      for (var i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+      }
+      x = document.getElementsByClassName('confirmed_bar');
+
+      for (var i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+      }
+    }
+    if (id=="all_button_label_1")
+    {
+      var x = document.getElementsByClassName('confirmed_bar');
+
+      for (var i = 0; i < x.length; i++) {
+          x[i].style.display = "block";
+      }
+      var x = document.getElementsByClassName('recovered_bar');
+
+      for (var i = 0; i < x.length; i++) {
+          x[i].style.display = "block";
+      }
+      x = document.getElementsByClassName('death_bar');
+
+      for (var i = 0; i < x.length; i++) {
+          x[i].style.display = "block";
+      }
+    }
+  // var x = document.getElementsByClassName('recovered_bar');
+
+  // for (var i = 0; i < x.length; i++) {
+  //     x[i].style.display = "none";
+  // }
+  // x = document.getElementsByClassName('death_bar');
+
+  // for (var i = 0; i < x.length; i++) {
+  //     x[i].style.display = "none";
+  // }
+}
 </script>
 
 <div style="display: flex;flex-direction: column;align-items: center;">
@@ -334,7 +426,7 @@ border-style: solid; border-color: #4D4D4D;">load</span></td>
     <script src="scripts/draw_trend.js"></script>
 
 
-    <script type="text/javascript">
+   <!--  <script type="text/javascript">
       function toggle_confirmed_bar() {
         var x = document.getElementsByClassName("confirmed_bar");
         for (var i = 0; i < x.length; i++) {
@@ -365,8 +457,7 @@ border-style: solid; border-color: #4D4D4D;">load</span></td>
           }
         }
       }
-    </script>
-
+    </script> -->
 
   <div class="column js-content">
 
