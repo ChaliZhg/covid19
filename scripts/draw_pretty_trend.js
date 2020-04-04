@@ -56,7 +56,7 @@ function addAxesAndLegend (svg, xAxis, yAxis, margin, chartWidth, chartHeight, c
       .attr('y', 6)
       .attr('dy', '.71em')
       .style('text-anchor', 'end')
-      .text('新增'+config["text"]);
+      .text('单日'+config["text"]);
 }
 
 function drawPaths (svg, data, x, y, config) {
