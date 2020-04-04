@@ -455,10 +455,10 @@
     0% {
       transform: scale(0); }
     20% {
-      transform: scale(1); }
+      transform: scale(0); }
     100% {
       opacity: 0;
-      transform: scale(1); } }
+      transform: scale(0); } }
   .switch-material.switch-light input:not(:checked) ~ span:after,
   .switch-material.switch-light input:checked ~ span:before,
   .switch-toggle.switch-material input:checked + label:after {
