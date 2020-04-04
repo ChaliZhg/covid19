@@ -68,19 +68,32 @@ border-style: solid; border-color: #4D4D4D;">load</span></td>
 <script src="scripts/country_names.js"></script>
 
 <label class="container">确诊
-  <input type="checkbox" checked="checked" onclick="toggle_confirmed_bar()">
+  <input type="checkbox" id="confirmed_button" checked="checked" onclick="toggle_confirmed_bar()">
   <span class="checkmark"></span>
 </label>
 
 <label class="container">治愈
-  <input type="checkbox" checked="checked" onclick="toggle_recovered_bar()">
+  <input type="checkbox" id="recovered_button" checked="checked" onclick="toggle_recovered_bar()">
   <span class="checkmark"></span>
 </label>
 
 <label class="container">死亡
-  <input type="checkbox" checked="checked" onclick="toggle_death_bar()">
+  <input type="checkbox" id="death_button" checked="checked" onclick="toggle_death_bar()">
   <span class="checkmark"></span>
 </label>
+
+<script type="text/javascript">
+  var checkboxes = document.getElementsByTagName('input');
+
+  for (var i=0; i<checkboxes.length; i++)  {
+    if (checkboxes[i].type == 'checkbox')   {
+      if (checkboxes[i].id != 'confirmed_button')
+      {
+        checkboxes[i].checked = false;
+      }
+    }
+  }
+</script>
 
 <div style="display: flex;flex-direction: column;align-items: center;">
   <div class="donut" id="loading_animation" ></div>
@@ -297,6 +310,19 @@ border-style: solid; border-color: #4D4D4D;">load</span></td>
       </div>
     </div>
 
+
+<script type="text/javascript">
+  var x = document.getElementsByClassName('recovered_bar');
+
+  for (var i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+  }
+  x = document.getElementsByClassName('death_bar');
+
+  for (var i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+  }
+</script>
 
 <!--     <script type="text/javascript">
       var x = document.getElementsByClassName("country_info");
