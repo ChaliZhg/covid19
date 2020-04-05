@@ -12,7 +12,7 @@ svg {
 }
 
 .axis text {
-  fill: #4D4D4D;
+  fill: #383E42;
 }
 
 .axis .tick line {
@@ -159,15 +159,15 @@ svg {
 
 .area.death,
 .legend .death {
-  fill: #4D4D4D;
-  stroke: #4D4D4D;
+  fill: #383E42;
+  stroke: #383E42;
   opacity: 0.2;
 }
 
 .death-line,
 .legend .death-line {
   fill: none;
-  stroke: #4D4D4D;
+  stroke: #383E42;
   stroke-width: 1;
 }
 
@@ -186,7 +186,7 @@ svg {
 .marker.client .marker-bg,
 .marker.client path {
   fill: rgba(51, 51, 51, 1.0);
-  stroke: #4D4D4D;
+  stroke: #383E42;
   stroke-width: 3;
   color: black;
 }
@@ -222,5 +222,5 @@ svg {
 }
 
 .death-label{
-  fill: #4D4D4D;
+  fill: #383E42;
 }
