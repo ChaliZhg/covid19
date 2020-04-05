@@ -131,29 +131,29 @@ svg {
 
 .area.confirmed,
 .legend .death {
-  fill: #d14f69;
-  stroke: #d14f69;
+  fill: #AA0000;
+  stroke: #AA0000;
   opacity: 0.2;
 }
 
 .confirmed-line,
 .legend .confirmed-line {
   fill: none;
-  stroke: #d14f69;
+  stroke: #AA0000;
   stroke-width: 1;
 }
 
 .area.recovered,
 .legend .death {
-  fill: #70c66b;
-  stroke: #70c66b;
+  fill: #46aa00;
+  stroke: #46aa00;
   opacity: 0.2;
 }
 
 .recovered-line,
 .legend .recovered-line {
   fill: none;
-  stroke: #70c66b;
+  stroke: #46aa00;
   stroke-width: 1;
 }
 
@@ -214,11 +214,11 @@ svg {
 }
 
 .confirmed-label{
-  fill: #d14f69;
+  fill: #AA0000;
 }
 
 .recovered-label{
-  fill: #70c66b;
+  fill: #46aa00;
 }
 
 .death-label{
