@@ -76,18 +76,42 @@ function addAxesAndLegend (svg, xAxis, yAxis, margin, chartWidth, chartHeight, c
     // .attr('class', 'y axis')
     .append('text')
       // .attr('transform', 'rotate(-90)')
+      .attr('y', 16)
+      .attr('dy', '1.71em')
+      .attr('class', config["name"]+"-label")
+      .style('text-anchor', 'end')
+      .text("test");
+
+  axes.append('g')
+    // .attr('class', 'y axis')
+    .append('text')
+      // .attr('transform', 'rotate(-90)')
       .attr('y', 6)
       .attr('dy', '.71em')
       .attr('class', config["name"]+"-label")
       .style('text-anchor', 'start')
-      .text(config["text"]+parseInt(config["current_value"]).toLocaleString()+config['rate']);
-    // .call(yAxis);
-    // .append('text')
-    //   // .attr('transform', 'rotate(-90)')
-    //   .attr('y', 6)
-    //   .attr('dy', '.71em')
-    //   .style('text-anchor', 'start')
-    //   .text('新增'+config["text"]);
+      .text(config["text"]+parseInt(config["current_value"]).toLocaleString());
+
+  // axes.append('g')
+  //   // .attr('class', 'y axis')
+  //   .append('text')
+  //     // .attr('transform', 'rotate(-90)')
+  //     .attr('y', 6)
+  //     .attr('dy', '.71em')
+  //     .attr('class', config["name"]+"-label")
+  //     .style('text-anchor', 'start')
+  //     .text('a');
+
+  axes.append('g')
+    // .attr('class', 'y axis')
+    .append('text')
+      // .attr('transform', 'rotate(-90)')
+      .attr('y', 6)
+      .attr('dy', '.71em')
+      .attr('dx', '6em')
+      .attr('class', config["name"]+"-label")
+      .style('text-anchor', 'start')
+      .text(config['rate']);
 }
 
 function drawPaths (svg, data, x, y, config) {
