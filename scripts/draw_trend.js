@@ -90,7 +90,7 @@ function addAxesAndLegend (svg, xAxis, yAxis, margin, chartWidth, chartHeight, c
       .attr('dy', '.71em')
       .attr('class', config["name"]+"-label")
       .style('text-anchor', 'start')
-      .text(config["text"]+parseInt(config["current_value"]).toLocaleString());
+      .text(parseInt(config["current_value"]).toLocaleString());
 
   // axes.append('g')
   //   // .attr('class', 'y axis')
@@ -108,7 +108,7 @@ function addAxesAndLegend (svg, xAxis, yAxis, margin, chartWidth, chartHeight, c
       // .attr('transform', 'rotate(-90)')
       .attr('y', 6)
       .attr('dy', '.71em')
-      .attr('dx', '6em')
+      .attr('dx', '3.5em')
       .attr('class', config["name"]+"-label")
       .style('text-anchor', 'start')
       .text(config['rate']);
