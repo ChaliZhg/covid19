@@ -108,7 +108,7 @@ function addAxesAndLegend (svg, xAxis, yAxis, margin, chartWidth, chartHeight, c
       // .attr('transform', 'rotate(-90)')
       .attr('y', 6)
       .attr('dy', '.71em')
-      .attr('dx', '3.5em')
+      .attr('dx', '4.5em')
       .attr('class', config["name"]+"-label")
       .style('text-anchor', 'start')
       .text(config['rate']);
@@ -330,9 +330,9 @@ var parseDate  = d3.time.format('%Y%m%d').parse;
   var recovery_rate = (parseInt(tempData[0]["recovered"])/parseInt(tempData[0]["confirmed"])*100).toString().substring(0,4)+"%";
   var death_rate = (parseInt(tempData[0]["deaths"])/parseInt(tempData[0]["confirmed"])*100).toString().substring(0,4)+"%";
 
-  configs = {"confirmed":{"div":"#daily_confirmed_trend", name:"confirmed", "text":"确诊", "current_value":current_confirmed, 'rate':"",},
-             "recovered":{"div":"#daily_recovered_trend", name:"recovered", "text":"治愈", "current_value":current_recovered, 'rate':" ("+recovery_rate+")",},
-             "death"    :{"div":"#daily_death_trend", name:"death",         "text":"死亡", "current_value":current_death, 'rate':" ("+death_rate+")",}
+  configs = {"confirmed":{"div":"#daily_confirmed_trend", name:"confirmed", "text":"确诊", "current_value":current_confirmed, 'rate':"+"+parseInt(tempData[0]["confirmed-inc"]).toLocaleString(),},
+             "recovered":{"div":"#daily_recovered_trend", name:"recovered", "text":"治愈", "current_value":current_recovered, 'rate':recovery_rate,},
+             "death"    :{"div":"#daily_death_trend", name:"death",         "text":"死亡", "current_value":current_death, 'rate':death_rate,}
            };
 
   makeChart(configs["confirmed"], data_confirmed, []);
