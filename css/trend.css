@@ -145,15 +145,15 @@ svg {
 
 .area.recovered,
 .legend .death {
-  fill: #0BE390;
-  stroke: #0BE390;
+  fill: #3cb371;
+  stroke: #3cb371;
   opacity: 0.2;
 }
 
 .recovered-line,
 .legend .recovered-line {
   fill: none;
-  stroke: #0BE390;
+  stroke: #3cb371;
   stroke-width: 1;
 }
 
@@ -218,7 +218,7 @@ svg {
 }
 
 .recovered-label{
-  fill: #0BE390;
+  fill: #3cb371;
 }
 
 .death-label{
