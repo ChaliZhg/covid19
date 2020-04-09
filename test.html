@@ -1,0 +1,226 @@
+<!doctype>
+<html>
+<head>
+  <!-- <link href='css/new.css' rel='stylesheet' type='text/css' /> -->
+  <!-- <link rel="stylesheet" type="text/css" href="css/toggle-switch.css"/> -->
+  <!-- <link rel="stylesheet" href="css/trend.css"/> -->
+  <link href='favicon.png' rel='icon'>
+  <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+  <meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+  <title>全球新冠肺炎COVID-19疫情发展趋势</title>
+  <meta content='全球新冠肺炎COVID-19疫情发展趋势' property='og:title' />
+  <meta content='https://teaof.life/corona' property='og:url' />
+  <meta content="Global Covid-19 infections trending, 全球新冠肺炎COVID-19疫情发展趋势" property='og:description' />
+  <meta content="blog" property="og:type" />
+</head>
+<body>
+  <div id="table_area"></div>
+  <div id="mydiv" style="display: block;"></div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+<!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
+<script type="text/javascript">
+  //to create divs
+  table_area = "table_area";
+  var ids = ['es','de', 'cn', 'us', 'jp', 'it', 'au', 'nz', 'tw', 'hk', 'ma'];
+  for (var i = 0; i < ids.length; i++) {
+    create_div(table_area, ids[i]);
+  }
+  
+  function create_div(parent_div, id) {
+    var newDiv = document.createElement("div");
+    newDiv.setAttribute("id", "div_"+id);
+    newDiv.setAttribute("style", "display: block;");
+    // and give it some content 
+    var newContent = document.createTextNode(id); 
+    // add the text node to the newly created div
+    newDiv.appendChild(newContent);  
+
+    // add the newly created element and its content into the DOM 
+    var currentDiv = document.getElementById(parent_div); 
+    currentDiv.appendChild(newDiv); 
+  }
+</script>
+<script type="text/javascript">
+timeline_url = "https://d3sid3u2apar25.cloudfront.net/history.v3.csv";
+
+var test;
+
+d3.csv(timeline_url, do_drawing);
+
+function do_drawing(data)
+{
+  for (var index = 0; index < ids.length; index++) {
+
+    id = ids[index];
+    var daily_values=[];
+    var max_confirmed = 0;
+    var max_recovered = 0;
+    var max_death = 0;
+    for (var i = data.length - 1; i >= 0; i--) {
+      if (data[i].id == id)
+      {
+        daily_node =
+        {
+          date: data[i].date,
+          confirmed: data[i].confirmed,
+          recovered: data[i].recovered,
+          deaths: data[i].deaths,
+        };
+        daily_values.push(daily_node);
+      }
+    }
+
+    for (var i = daily_values.length - 1; i >= 0; i--) {
+      if (i== (daily_values.length - 1))
+      {
+        daily_values[i]["recovered-inc"] = 0;
+        daily_values[i]["confirmed-inc"] = 0;
+        daily_values[i]["death-inc"] = 0;
+      }
+      else
+      {
+        daily_values[i]["confirmed-inc"] = daily_values[i]["confirmed"] - daily_values[i+1]["confirmed"];
+        daily_values[i]["recovered-inc"] = daily_values[i]["recovered"] - daily_values[i+1]["recovered"];
+        daily_values[i]["death-inc"] = daily_values[i]["deaths"] - daily_values[i+1]["deaths"];
+
+        if (daily_values[i]["confirmed-inc"]>max_confirmed)
+        {
+          max_confirmed = daily_values[i]["confirmed-inc"];
+        }
+        if (daily_values[i]["recovered-inc"]>max_recovered)
+        {
+          max_recovered = daily_values[i]["recovered-inc"];
+        }
+        if (daily_values[i]["death-inc"]>max_death)
+        {
+          max_death = daily_values[i]["death-inc"];
+        }
+      }
+    }
+
+    var parseDate  = d3.time.format('%Y%m%d').parse;
+    // console.log(daily_values[daily_values.length-1]['date'], daily_values[daily_values.length-1]['date']>20200122);
+    // console.log(daily_values);
+
+    // var myDate = parseDate(daily_values[daily_values.length-1]['date']);
+    // console.log(myDate);
+
+    //add a day to the date
+    // myDate.setDate(myDate.getDate() + 1);
+    // console.log(myDate);
+
+    // console.log(daily_values.length);
+
+    var myDate = parseDate(daily_values[daily_values.length-1]['date']);
+    // console.log(myDate);
+    var ref_date = parseDate("20200121");
+    myDate.setDate(myDate.getDate() - 1)
+
+    // console.log(myDate);
+    // myDate.setDate(myDate.getDate() -10)
+    // console.log(myDate,myDate>ref_date);
+
+    // for ( ; myDate>=ref_date; myDate.setDate(myDate.getDate() - 1))
+    // {
+    //   console.log(myDate);
+    // }
+    for ( ; myDate>ref_date; myDate.setDate(myDate.getDate() - 1))
+    {
+      // console.log(myDate);
+      daily_node =
+        {
+          date: "2020" + ("0" + (myDate.getMonth()+1)).slice(-2)+(("0" + myDate.getDate()).slice(-2)),
+          confirmed: 0,
+          recovered: 0,
+          deaths: 0,
+          "confirmed-inc": 0,
+          "recovered-inc": 0,
+          "death-inc": 0,
+        };
+        daily_values.push(daily_node);
+    }
+    // console(daily_values.length);
+
+    // for (var ref_date = ; ref_date >20200122; )
+    // {
+
+    //   this_date.setDate(parseDate(ref_date));
+
+    //   // console.log("yes");
+    //   daily_node =
+    //     {
+    //       date: ref_date.toString(),
+    //       confirmed: 0,
+    //       recovered: 0,
+    //       deaths: 0,
+    //       "confirmed-inc": 0,
+    //       "recovered-inc": 0,
+    //       "death-inc": 0,
+    //     };
+    //     daily_values.push(daily_node);
+    // }
+    // console.log(daily_values);
+
+    daily_values = daily_values.reverse();
+
+
+    max_confirmed = 1000;
+    max_recovered = 1000;
+    max_death = 1000;
+
+    var daily_scaled = daily_values.map(function (d)
+    {
+       return {
+        "date":  parseDate(d.date),
+        "confirmed-inc":d["confirmed-inc"]/max_confirmed,
+        "recovered-inc":d["recovered-inc"]/max_recovered,
+        "death-inc":d["death-inc"]/max_death,
+      };
+    }
+    );
+    // console.log(ids[index], daily_scaled.length);
+
+
+
+
+    console.log(daily_scaled);
+
+    types = ["confirmed", 'recovered', 'death'];
+    colors = ["227,11,97,", "60,179,113,", "60,60,60,"];
+
+    for (var i = 0; i < types.length; i++)
+    {
+
+      svg_width = 300;
+      svg_height = 20
+      var svgContainer = d3.select("#div_"+id).append("svg")
+                                         .attr('id','bar_'+id+types[i])
+                                         .attr('style', 'text-align: right;')
+                                         .attr("width", svg_width)
+                                         .attr("height", svg_height);
+
+       nod = daily_scaled.length;
+
+      for (var j = 0; j < daily_scaled.length; j++) {
+      var rectangle = svgContainer.append("rect")
+                              .attr("x", svg_width/nod*j)
+                              .attr("y", 0)
+                              .attr("width", svg_width/nod)
+                              .attr("height", svg_height)
+                              .attr("stroke", "white")
+                              .attr("fill", "rgba("+colors[i]+daily_scaled[j][types[i]+"-inc"]+")");
+       }
+
+
+    }
+
+  }
+
+
+}
+
+</script>
+
+  </html>
