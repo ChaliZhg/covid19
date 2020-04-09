@@ -310,20 +310,26 @@ var parseDate  = d3.time.format('%Y%m%d').parse;
   current_death = tempData[0]["deaths"];
   // console.log(names[index], tempData[tempData.length-1]['date'], tempData[tempData.length-1]['confirmed']);
 
-  for (var ref_date = tempData[tempData.length-1]['date']; i >20200122; ref_date--)
-  {
-    daily_node =
-      {
-        date: ref_date,
-        confirmed: 0,
-        recovered: 0,
-        deaths: 0,
-        "confirmed-inc": 0,
-        "recovered-inc": 0,
-        "death-inc": 0,
-      };
-      tempData.push(daily_node);
-  }
+    var myDate = parseDate(tempData[tempData.length-1]['date']);
+    var ref_date = parseDate("20200121");
+    myDate.setDate(myDate.getDate() - 1)
+
+    for ( ; myDate>ref_date; myDate.setDate(myDate.getDate() - 1))
+    {
+      daily_node =
+        {
+          date: "2020" + ("0" + (myDate.getMonth()+1)).slice(-2)+(("0" + myDate.getDate()).slice(-2)),
+          confirmed: 0,
+          recovered: 0,
+          deaths: 0,
+          "confirmed-inc": 0,
+          "recovered-inc": 0,
+          "death-inc": 0,
+        };
+        tempData.push(daily_node);
+    }
+
+    console.log(tempData.length);
 
   test = tempData;
 
