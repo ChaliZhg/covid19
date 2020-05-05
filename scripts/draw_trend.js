@@ -2,7 +2,7 @@ confirmed_max =8000;
 recovered_max = 2000;
 death_max = 300;
 
-timeline_url = "https://d3sid3u2apar25.cloudfront.net/history.v3.csv";
+timeline_url = "https://funkeinteraktiv.b-cdn.net/history.light.v4.csv";
 
 var test;
 d3.csv(timeline_url, function(data)   

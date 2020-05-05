@@ -1,5 +1,5 @@
 daily_values = [];
-timeline_url = "https://d3sid3u2apar25.cloudfront.net/history.v3.csv";
+timeline_url = "https://funkeinteraktiv.b-cdn.net/history.light.v4.csv";
 d3.csv(timeline_url, function(data)   
 {
   // daily_values = [];
