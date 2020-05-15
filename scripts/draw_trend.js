@@ -108,7 +108,7 @@ function addAxesAndLegend (svg, xAxis, yAxis, margin, chartWidth, chartHeight, c
       // .attr('transform', 'rotate(-90)')
       .attr('y', 6)
       .attr('dy', '.71em')
-      .attr('dx', '4.5em')
+      .attr('dx', '6.0em')
       .attr('class', config["name"]+"-label")
       .style('text-anchor', 'start')
       .text(config['rate']);
