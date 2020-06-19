@@ -116,13 +116,13 @@ function addAxesAndLegend (svg, xAxis, yAxis, margin, chartWidth, chartHeight, c
 
 function drawPaths (svg, data, x, y, config) {
   var sumArea16 = d3.svg.area()
-    .interpolate('linear')
+    .interpolate('step-after')
     .x (function (d) { return x(d.date) || 1; })
     .y0(function (d) { return y(d.value); })
     .y1(function (d) { return y(0); });
 
   var medianLine = d3.svg.line()
-    .interpolate('linear')
+    .interpolate('step-after')
     .x(function (d) { return x(d.date); })
     .y(function (d) { return y(d.value); });
 
