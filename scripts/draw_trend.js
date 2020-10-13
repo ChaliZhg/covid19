@@ -329,7 +329,7 @@ var parseDate  = d3.time.format('%Y%m%d').parse;
         tempData.push(daily_node);
     }
 
-    console.log(tempData.length);
+    // console.log(tempData.length);
 
   test = tempData;
 

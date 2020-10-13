@@ -149,7 +149,7 @@ function makeChart (config, data, markers) {
       y = d3.scale.linear().range([chartHeight, 0])
             .domain([0, d3.max(data, function (d) { return d.value; })]);
 
-  var xAxis = d3.svg.axis().scale(x).orient('bottom').ticks(15).tickFormat(d3.time.format("%d"))
+  var xAxis = d3.svg.axis().scale(x).orient('bottom').ticks(15).tickFormat(d3.time.format("%b"))
                 .innerTickSize(-chartHeight).outerTickSize(0).tickPadding(10),
       yAxis = d3.svg.axis().scale(y).orient('left')
                 .innerTickSize(-chartWidth).outerTickSize(0).tickPadding(10);
